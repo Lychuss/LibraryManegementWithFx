@@ -42,17 +42,18 @@ public class ViewAllBooksController {
 	        System.out.println("Books list is null. Cannot load table.");
 	        return;
 	    }
+	    
+	    ObservableList<ViewAllBooks> booksBuilt = FXCollections.observableArrayList();
 		System.out.println(LibraryData.getBooks());
 		
 		 int num = 0;
 		
 		for(Book i : LibraryData.getBooks()) {
 			num++;
-		 ObservableList<ViewAllBooks> data = FXCollections.observableArrayList(
-		            new ViewAllBooks(Integer.toString(num), i.getTitle(), "0"+ i.getId()  , i.getFirstName() + i.getLastName(), i.getDatePublished(), i.getAvailability())
-		        );
-
-		        tableView.setItems(data);
+		
+		     ViewAllBooks data = new ViewAllBooks(Integer.toString(num), i.getTitle(), "0"+ i.getId()  , i.getFirstName()+ "" + i.getLastName(), i.getDatePublished(), i.getAvailability());
+		     booksBuilt.add(data);
 		}
+		tableView.setItems(booksBuilt);
 	}
 }

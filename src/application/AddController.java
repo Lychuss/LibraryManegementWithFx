@@ -1,5 +1,8 @@
 package application;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -39,7 +42,7 @@ public class AddController {
 
 	}
 	
-	String filePath = "C:\\Users\\Test\\Downloads\\Books.txt";
+	static String filePath = "C:\\Users\\Test\\Downloads\\Books.txt";
 	
 	public void addBooks(ActionEvent e) throws IOException {
 		
@@ -68,9 +71,31 @@ public class AddController {
 		root = loader.load();
 		stage = (Stage)((Node)e.getSource()).getScene().getWindow();
 		scene = new Scene(root);
+
 		stage.setScene(scene);
-		stage.show();
-		
+		stage.show();		
+	}
+	
+	public static void storedBooks() throws FileNotFoundException, IOException {
+		try(BufferedReader read = new BufferedReader(new FileReader(filePath))){
+			String line;
 			
+			while((line = read.readLine()) != null) {
+				String[] parts = line.split(",");
+				
+				if(parts.length == 6) {
+					String title = parts[0];
+					String id = parts[1];
+					String firstName = parts[2];
+					String lastName = parts[3];
+					String datePublished = parts[4];
+					String availability = parts[5];
+					int idMember = Integer.parseInt(id);
+					
+					Book booksBuilt = new Book(firstName, lastName, title, datePublished, availability, idMember);
+					LibraryData.getBooks().add(booksBuilt);
+				}
+			}
+		}
 	}
 }

@@ -32,16 +32,16 @@ public class MenuController {
 	}
 	
 	public void addViewAllBooks(ActionEvent e) throws IOException {
-		
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewAllBook.fxml"));
 	    root = loader.load();
 	    
-	    ViewAllBooksController controller = new ViewAllBooksController();
+	    ViewAllBooksController controller = loader.getController();
 	    controller.loadTable();
 	    
 		stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-		scene = new Scene(root);
+		scene = new Scene(root, 1000, 600);
 		stage.setScene(scene);
+		stage.centerOnScreen();
 		stage.show();
 	}
 }

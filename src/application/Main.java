@@ -10,11 +10,11 @@ import javafx.scene.layout.BorderPane;
 
 public class Main extends Application {
 	
-	LoginController controller = new LoginController();
-	
 	@Override
 	public void start(Stage stage) {
 		try {
+			LoginController.builtIn();
+			AddController.storedBooks();
 			Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

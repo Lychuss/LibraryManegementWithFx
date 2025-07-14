@@ -36,9 +36,9 @@ public class LoginController {
 		this.id1 = id;
 	}
 	
-	String filePath1 = "C:\\Users\\Test\\Downloads\\Passwords.txt";
+	static String filePath1 = "C:\\Users\\Test\\Downloads\\Passwords.txt";
 
-	public void builtIn(){
+	public static void builtIn(){
 		
 	try(BufferedReader reader = new BufferedReader(new FileReader(filePath1))){
 		
@@ -47,7 +47,7 @@ public class LoginController {
 		while((line = reader.readLine()) != null) {
 			String[] parts = line.split(",");
 			
-			if(parts.length == 2) {
+			if(parts.length == 3) {
 				String username = parts[0].trim();
 				String password = parts[1].trim();
 				String userId = parts[2].trim();
@@ -65,7 +65,6 @@ public class LoginController {
 	
 	
 	public void loginComplete(ActionEvent event) throws IOException {
-		builtIn();
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Menu.fxml"));
 		root = loader.load();
 		
