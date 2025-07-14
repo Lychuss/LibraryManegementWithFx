@@ -1,7 +1,5 @@
 package application;
 
-import java.util.ArrayList;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -25,17 +23,7 @@ public class ViewAllBooksController {
 	private TableColumn<ViewAllBooks, String> dateColumn;
 	@FXML
 	private TableColumn<ViewAllBooks, String> statusColumn;
-	private ArrayList<AddController> books;
-	private String id;
-	
-	
-	public void setId(String id) {
-		this.id = id;
-	}
-	
-	public void setBooks(ArrayList<AddController> books) {
-		this.books = books;
-	}
+
 	
 	public void initialize() {
 		numberColumn.setCellValueFactory(new PropertyValueFactory<>("number"));
@@ -50,18 +38,18 @@ public class ViewAllBooksController {
 	 * 
 	 */
 	public void loadTable() {
-	    if (books == null) {
+	    if (LibraryData.getBooks() == null) {
 	        System.out.println("Books list is null. Cannot load table.");
 	        return;
 	    }
-		System.out.println(books);
+		System.out.println(LibraryData.getBooks());
 		
 		 int num = 0;
 		
-		for(AddController i : books) {
+		for(Book i : LibraryData.getBooks()) {
 			num++;
 		 ObservableList<ViewAllBooks> data = FXCollections.observableArrayList(
-		            new ViewAllBooks(Integer.toString(num), i.getTitle(), "0"+id , i.getFirstName() + i.getLastName(), i.getDatePublished(), i.getAvailability())
+		            new ViewAllBooks(Integer.toString(num), i.getTitle(), "0"+ i.getId()  , i.getFirstName() + i.getLastName(), i.getDatePublished(), i.getAvailability())
 		        );
 
 		        tableView.setItems(data);

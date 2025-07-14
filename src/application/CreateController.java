@@ -26,11 +26,7 @@ public class CreateController {
 	private Scene scene;
 	private Stage stage;
 	private Parent root;
-	
-	private String username;
-	private String password;
-	private int id;
-	private LoginController controller;
+
 	
 	String filePath = "C:\\Users\\Test\\Downloads\\Passwords.txt";
 	
@@ -38,20 +34,19 @@ public class CreateController {
 
 	}
 	
-	CreateController(String username, String password, int id){
-		this.username = username;
-		this.password = password;
-		this.id = id;
-	}
-	
 	public void createAccount(ActionEvent e) {
 		String username = createUsername.getText();
 		String password = createPassword.getText();
 		int id = (int) (Math.random() * 3000 + 1);
-		controller.setId(Integer.toString(id));
+		String userId = Integer.toString(id);
+		
+		Users createdUser = new Users(username, password, id);
+		LibraryData.getCreatedUser().add(createdUser);
+		
+		LibraryData.getUser().put(username, id);
 	
 		try(FileWriter writer = new FileWriter(filePath, true)){
-			writer.write(username + "," + password + "," + System.lineSeparator());
+			writer.write(username + "," + password + "," + userId + System.lineSeparator());
 			if(!username.isEmpty() && !password.isEmpty()) {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
 				root = loader.load();
@@ -65,19 +60,5 @@ public class CreateController {
 		} catch(IOException event) {
 			System.out.println("Something went wrong!");
 		}
-		
-		controller.builtIn();
-	}
-	
-	public String getUsername() {
-		return this.username;
-	}
-	
-	public String getPassword() {
-		return this.password;
-	}
-	
-	public int getId() {
-		return this.id;
 	}
 }

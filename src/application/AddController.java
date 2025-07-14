@@ -21,11 +21,6 @@ import javafx.stage.Stage;
 
 public class AddController {
 
-	private String firstName;
-	private String lastName;
-	private String title;
-	private String datePublished;
-	private String availability;
 	private Parent root;
 	private Stage stage;
 	private Scene scene;
@@ -39,60 +34,23 @@ public class AddController {
 	private TextField addTitle;
 	@FXML
 	private DatePicker addPublished;
-	
-	private ArrayList<AddController> books = new ArrayList<>();
-	
+
 	public AddController() {
 
 	}
 	
-	public ArrayList<AddController> getBooks(){
-		return books;
-	}
-	
-	String getFirstName() {
-		return this.firstName;
-	}
-	
-	String getLastName() {
-		return this.lastName;
-	}
-	
-	String getTitle() {
-		return this.title;
-	}
-	
-	String getDatePublished() {
-		return this.datePublished;
-	}
-	
-	String getAvailability() {
-		return this.availability;
-	}
-	
 	String filePath = "C:\\Users\\Test\\Downloads\\Books.txt";
-	
-	public AddController(String firstName, String lastName, String title, String datePublished, String availability){
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.title = title;
-		this.datePublished = datePublished;
-		this.availability = availability;
-	}
 	
 	public void addBooks(ActionEvent e) throws IOException {
 		
 		String bookDetails = addFirstName.getText() + "," + addLastName.getText() + "," + addTitle.getText() + "," + addPublished.getValue().toString() + "," + "AVAILABLE";
 		
-		AddController addBook = new AddController(addFirstName.getText(), addLastName.getText(), addTitle.getText(), addPublished.getValue().toString(), "AVAILABLE" ); 
-		books.add(addBook);
+		String key = LibraryData.getUser().keySet().iterator().next();
 		
-		ViewAllBooksController control1 = new ViewAllBooksController();
-		control1.setBooks(getBooks());
-		MenuController control = new MenuController();
-		control.setBooks(getBooks());;
+		Book addBook = new Book(addFirstName.getText(), addLastName.getText(), addTitle.getText(), addPublished.getValue().toString(), "AVAILABLE", LibraryData.getUser().get(key) ); 
+		LibraryData.getBooks().add(addBook);
 		
-		System.out.print(books.isEmpty());
+		System.out.print(LibraryData.getBooks().isEmpty());
 		
 		List<String> booksCheck = Files.readAllLines(Paths.get(filePath));
 			

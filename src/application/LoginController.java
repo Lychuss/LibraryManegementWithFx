@@ -29,7 +29,6 @@ public class LoginController {
 	private Parent root;
 	private Stage stage;
 	private Scene scene;
-	private HashMap<String, String> users = new HashMap<>();
 	private ViewAllBooksController controller = new ViewAllBooksController();
 	private String id1;
 	
@@ -51,12 +50,11 @@ public class LoginController {
 			if(parts.length == 2) {
 				String username = parts[0].trim();
 				String password = parts[1].trim();
-				String id = id1;
-				users.put(username, password);
+				String userId = parts[2].trim();
+				int memberId = Integer.parseInt(userId);
 				
-				if(username == userUsername.getText()) {
-					controller.setId(id);
-				}
+				Users user = new Users(username, password, memberId);
+				LibraryData.getCreatedUser().add(user);
 			}
 		}
 	}
@@ -74,8 +72,16 @@ public class LoginController {
 		String username = userUsername.getText();
 		String password = userPassword.getText();
 		
-		for(Map.Entry<String, String> i : users.entrySet()) {
-			if(i.getKey().equals(username) && i.getValue().equals(password)){
+		
+		for(Users i : LibraryData.getCreatedUser()) {
+		if(i.getUsername().equals(username)) {
+			int memberId = i.getId();
+			LibraryData.getUser().put(username, memberId);
+		}
+		
+		}
+		for(Users i : LibraryData.getCreatedUser()) {
+			if(i.getUsername().equals(username) && i.getPassword().equals(password)){
 				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 				scene = new Scene(root);
 				stage.setScene(scene);
@@ -85,10 +91,6 @@ public class LoginController {
 			}
 	}
   }
-	
-	public void useHashMap(String key, String value) {
-		users.put(key, value);
-	}
 	
 	public void signUp(MouseEvent e) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateAccount.fxml"));
