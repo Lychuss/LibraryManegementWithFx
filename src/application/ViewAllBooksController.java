@@ -1,14 +1,29 @@
 package application;
 
+import java.io.IOException;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 public class ViewAllBooksController {
-
+	
+	private Stage stage;
+	private Parent root;
+	private Scene scene;
+	
+	@FXML
+	private Button backButton;
 	@FXML
 	private TableView<ViewAllBooks> tableView;
 	@FXML
@@ -51,9 +66,20 @@ public class ViewAllBooksController {
 		for(Book i : LibraryData.getBooks()) {
 			num++;
 		
-		     ViewAllBooks data = new ViewAllBooks(Integer.toString(num), i.getTitle(), "0"+ i.getId()  , i.getFirstName()+ "" + i.getLastName(), i.getDatePublished(), i.getAvailability());
+		     ViewAllBooks data = new ViewAllBooks(Integer.toString(num), i.getTitle(), "0"+ i.getId()  , i.getFirstName()+ " " + i.getLastName(), i.getDatePublished(), i.getAvailability());
 		     booksBuilt.add(data);
 		}
 		tableView.setItems(booksBuilt);
+	}
+	
+	public void backButton(ActionEvent e) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("Menu.fxml"));
+		root = loader.load();
+		stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.setResizable(false);
+		stage.centerOnScreen();
+		stage.show();
 	}
 }

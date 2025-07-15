@@ -39,9 +39,19 @@ public class MenuController {
 	    controller.loadTable();
 	    
 		stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-		scene = new Scene(root, 1000, 600);
+		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.centerOnScreen();
+		stage.show();
+	}
+	
+	public void borrow(ActionEvent e) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("Borrow.fxml"));
+		root = loader.load();
+		
+		stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
 		stage.show();
 	}
 }

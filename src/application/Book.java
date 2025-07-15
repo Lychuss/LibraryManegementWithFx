@@ -41,4 +41,24 @@ public class Book {
 	int getId() {
 		return this.id;
 	}
+	
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	public void setAvailability(String availability) {
+		this.availability = availability;
+	}
+	
+	public void setDatePublished(String datePublished) {
+		this.datePublished = datePublished;
+	}
 }

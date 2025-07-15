@@ -21,7 +21,7 @@
             <Font name="Comic Sans MS Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="54.0" layoutY="225.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="193.0" text="BORROW BOOKS">
+      <Button layoutX="54.0" layoutY="225.0" mnemonicParsing="false" onAction="#borrow" prefHeight="49.0" prefWidth="193.0" text="BORROW BOOKS">
          <font>
             <Font name="Comic Sans MS Bold" size="18.0" />
          </font>

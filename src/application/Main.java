@@ -13,6 +13,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage stage) {
 		try {
+			
 			LoginController.builtIn();
 			AddController.storedBooks();
 			Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));

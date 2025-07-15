@@ -46,10 +46,11 @@ public class AddController {
 	
 	public void addBooks(ActionEvent e) throws IOException {
 		
-		String bookDetails = addFirstName.getText() + "," + addLastName.getText() + "," + addTitle.getText() + "," + addPublished.getValue().toString() + "," + "AVAILABLE";
-		
+		if(!addTitle.getText().equals(null)) {
 		String key = LibraryData.getUser().keySet().iterator().next();
 		
+		String bookDetails = addTitle.getText()  + "," + LibraryData.getUser().get(key)+ "," +addFirstName.getText() + "," + addLastName.getText() + "," + addPublished.getValue().toString() + "," + "AVAILABLE";
+	
 		Book addBook = new Book(addFirstName.getText(), addLastName.getText(), addTitle.getText(), addPublished.getValue().toString(), "AVAILABLE", LibraryData.getUser().get(key) ); 
 		LibraryData.getBooks().add(addBook);
 		
@@ -73,10 +74,11 @@ public class AddController {
 		scene = new Scene(root);
 
 		stage.setScene(scene);
-		stage.show();		
+		stage.show();
+		} 
 	}
 	
-	public static void storedBooks() throws FileNotFoundException, IOException {
+	public static void storedBooks() throws FileNotFoundException {
 		try(BufferedReader read = new BufferedReader(new FileReader(filePath))){
 			String line;
 			
@@ -96,6 +98,8 @@ public class AddController {
 					LibraryData.getBooks().add(booksBuilt);
 				}
 			}
+		} catch(IOException e) {
+			System.out.print("something went wrong!");
 		}
 	}
 }
