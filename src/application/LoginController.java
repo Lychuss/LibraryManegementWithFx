@@ -85,7 +85,7 @@ public class LoginController {
 				scene = new Scene(root);
 				stage.setScene(scene);
 				stage.show();
-				System.out.print("Login Successfully");
+				System.out.println("Login Successfully");
 				break;
 			}
 	}

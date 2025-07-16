@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,12 +35,19 @@ public class BorrowBookController {
 	private Parent root;
 	
 	public void borrowBook(ActionEvent e) throws IOException {
+		String key = LibraryData.getUser().keySet().iterator().next();
 		
 		List<String> updatedLines = new ArrayList<>();
 		
+		LocalDate currentDate = LocalDate.now();
+		
 		for(Book i : LibraryData.getBooks()) {
 			if(i.getFirstName().equals(borrowFirstName.getText()) && i.getLastName().equals(borrowLastName.getText()) && i.getTitle().equals(borrowTitle.getText())) {
+				i.setDatePublished(currentDate.toString());
 				i.setAvailability("BORROWED");
+				Book books = new Book(i.getFirstName(), i.getLastName(), i.getTitle(), i.getDatePublished(), i.getAvailability(), i.getId());
+				LibraryData.getBorrows().putIfAbsent(LibraryData.getUser().get(key), new ArrayList<>());
+				LibraryData.getBorrows().get(LibraryData.getUser().get(key)).add(books);
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("Menu.fxml"));
 				root = loader.load();
 				stage = (Stage)((Node)e.getSource()).getScene().getWindow();
@@ -55,6 +63,7 @@ public class BorrowBookController {
 				String[] parts = line.split(",");
 				
 				if(parts.length == 6) {
+					String id = parts[1];
 					String title = parts[0];
 					String firstName = parts[2];
 					String lastName = parts[3];
@@ -62,6 +71,7 @@ public class BorrowBookController {
 					   firstName.equalsIgnoreCase(borrowFirstName.getText()) &&
 						lastName.equalsIgnoreCase(borrowLastName.getText())) {
 						parts[5] = "BORROWED";
+						parts[1] = LibraryData.getUser().get(key).toString();
 					}
 			}
 				updatedLines.add(String.join(",", parts));

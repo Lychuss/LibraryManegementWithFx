@@ -49,9 +49,6 @@ public class ViewAllBooksController {
 		statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
 	}
 	
-	/**
-	 * 
-	 */
 	public void loadTable() {
 	    if (LibraryData.getBooks() == null) {
 	        System.out.println("Books list is null. Cannot load table.");
@@ -59,7 +56,6 @@ public class ViewAllBooksController {
 	    }
 	    
 	    ObservableList<ViewAllBooks> booksBuilt = FXCollections.observableArrayList();
-		System.out.println(LibraryData.getBooks());
 		
 		 int num = 0;
 		
@@ -73,6 +69,7 @@ public class ViewAllBooksController {
 	}
 	
 	public void backButton(ActionEvent e) throws IOException {
+		
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Menu.fxml"));
 		root = loader.load();
 		stage = (Stage)((Node)e.getSource()).getScene().getWindow();

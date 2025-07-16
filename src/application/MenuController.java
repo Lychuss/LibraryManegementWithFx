@@ -54,4 +54,18 @@ public class MenuController {
 		stage.setScene(scene);
 		stage.show();
 	}
+	
+	public void returnBook(ActionEvent e) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("Return.fxml"));
+		root = loader.load();
+		
+		ReturnBookController controller = loader.getController();
+		controller.loadTable();
+		
+		stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.centerOnScreen();
+		stage.show();
+	}
 }

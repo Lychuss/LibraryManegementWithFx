@@ -5,10 +5,9 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ReturnBookController">
    <children>
-      <TableView fx:id="tableView" fixedCellSize="0.0" onSort="#loadTable" prefHeight="600.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TableView fx:id="borrowTableView" fixedCellSize="0.0" onSort="#loadTable" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <columns>
             <TableColumn fx:id="borrowNumColumn" prefWidth="47.0" text="No." />
             <TableColumn fx:id="borrowTitleColumn" prefWidth="311.0" text="Title" />
@@ -16,8 +15,9 @@
             <TableColumn fx:id="borrowAuthorColumn" minWidth="40.0" prefWidth="185.0" text="Book Author" />
             <TableColumn fx:id="borrowDateColumn" minWidth="0.0" prefWidth="197.0" text="Date Borrowed" />
             <TableColumn fx:id="borrowStatusColumn" minWidth="0.0" prefWidth="93.0" text="Status" />
+            <TableColumn fx:id="borrowReturnColumn" prefWidth="108.0" text="Return" />
          </columns>
       </TableView>
-      <Button fx:id="backButton" layoutX="944.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Back" />
+      <Button fx:id="returnBackButton" layoutX="1052.0" mnemonicParsing="false" onAction="#backButton" prefHeight="25.0" prefWidth="48.0" text="Back" />
    </children>
 </AnchorPane>

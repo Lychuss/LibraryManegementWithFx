@@ -2,12 +2,22 @@ package application;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class LibraryData {
 	
 	    private static ArrayList<Book> books = new ArrayList<>();
 	    private static ArrayList<Users> createdUser = new ArrayList<>();
 	    private static HashMap<String, Integer> users = new HashMap<>();
+	    private static HashMap<Integer, ArrayList<Book>> borrowBooks = new HashMap<>();
+	    
+	    public static HashMap<Integer, ArrayList<Book>> getBorrows(){
+	    	return borrowBooks;
+	    }
+	    
+	    public static void setBorrowBooks(HashMap<Integer, ArrayList<Book>> borrow) {
+	    	borrowBooks = borrow;
+	    }
 	    
 	    public static HashMap<String, Integer> getUser(){
 	    	return users;

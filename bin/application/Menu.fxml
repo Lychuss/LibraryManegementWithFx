@@ -6,7 +6,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MenuController">
    <children>
-      <Button layoutX="54.0" layoutY="127.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="193.0" text="RETURN BOOKS">
+      <Button layoutX="54.0" layoutY="127.0" mnemonicParsing="false" onAction="#returnBook" prefHeight="49.0" prefWidth="193.0" text="RETURN BOOKS">
          <font>
             <Font name="Comic Sans MS Bold" size="18.0" />
          </font>

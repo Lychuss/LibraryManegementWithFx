@@ -48,4 +48,12 @@ public class ReturnBooks {
 		return status.get();
 	}
 	
+	public void setNumber(String value) {
+	    this.number.set(value);
+	}
+	
+	public void setStatus(String status) {
+		this.status.set(status);
+	}
+	
 }
