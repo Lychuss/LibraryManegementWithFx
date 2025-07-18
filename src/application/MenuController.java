@@ -43,6 +43,21 @@ public class MenuController {
 		stage.setScene(scene);
 		stage.centerOnScreen();
 		stage.show();
+		
+	    controller.setBackAction(event -> {
+			FXMLLoader load = new FXMLLoader(getClass().getResource("Menu.fxml"));
+			try {
+				root = load.load();
+				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+				scene = new Scene(root);
+				stage.setScene(scene);
+				stage.setResizable(false);
+				stage.centerOnScreen();
+				stage.show();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+	    });
 	}
 	
 	public void borrow(ActionEvent e) throws IOException {
