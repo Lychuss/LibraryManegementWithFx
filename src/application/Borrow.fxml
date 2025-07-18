@@ -19,6 +19,7 @@
             <Font name="Century Gothic Bold" size="20.0" />
          </font>
       </Label>
-      <Button fx:id="borrowButton" layoutX="119.0" layoutY="233.0" mnemonicParsing="false" onAction="#borrowBook" prefHeight="25.0" prefWidth="62.0" style="-fx-background-color: gray;" text="Borrow" />
+      <Button fx:id="borrowButton" layoutX="74.0" layoutY="235.0" mnemonicParsing="false" onAction="#borrowBook" prefHeight="25.0" prefWidth="62.0" style="-fx-background-color: gray;" text="Borrow" />
+      <Button fx:id="borrowCancelButton" layoutX="165.0" layoutY="235.0" mnemonicParsing="false" onAction="#cancelButton" prefHeight="25.0" prefWidth="62.0" style="-fx-background-color: gray;" text="Cancel" />
    </children>
 </AnchorPane>

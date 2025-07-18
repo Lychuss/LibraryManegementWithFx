@@ -22,6 +22,7 @@
             <Font name="Century Gothic Bold" size="20.0" />
          </font>
       </Label>
-      <Button fx:id="addButton" layoutX="116.0" layoutY="287.0" mnemonicParsing="false" onAction="#addBooks" style="-fx-background-color: gray;" text="Add" />
+      <Button fx:id="addButton" layoutX="77.0" layoutY="287.0" mnemonicParsing="false" onAction="#addBooks" style="-fx-background-color: gray;" text="Add" />
+      <Button fx:id="addCancelButton" layoutX="160.0" layoutY="287.0" mnemonicParsing="false" onAction="#cancelButton" prefHeight="30.0" prefWidth="62.0" style="-fx-background-color: gray;" text="Cancel" />
    </children>
 </AnchorPane>

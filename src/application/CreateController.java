@@ -19,6 +19,8 @@ public class CreateController {
 	@FXML
 	private Button createButton;
 	@FXML
+	private Button createCancelButton;
+	@FXML
 	private TextField createUsername;
 	@FXML
 	private PasswordField createPassword;
@@ -60,5 +62,15 @@ public class CreateController {
 		} catch(IOException event) {
 			System.out.println("Something went wrong!");
 		}
+	}
+	
+	public void cancelButton(ActionEvent e) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+		root = loader.load();
+		stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.centerOnScreen();
+		stage.show();
 	}
 }

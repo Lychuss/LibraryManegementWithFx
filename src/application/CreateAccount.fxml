@@ -9,7 +9,7 @@
 
 <Pane fx:id="loginPane" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CreateController">
    <children>
-      <Button fx:id="createButton" layoutX="100.0" layoutY="242.0" mnemonicParsing="false" onAction="#createAccount" text="Create Account" />
+      <Button fx:id="createButton" layoutX="52.0" layoutY="243.0" mnemonicParsing="false" onAction="#createAccount" text="Create Account" />
       <TextField fx:id="createUsername" layoutX="23.0" layoutY="106.0" prefHeight="25.0" prefWidth="251.0" promptText="Enter Username" />
       <PasswordField fx:id="createPassword" layoutX="23.0" layoutY="162.0" onAction="#createAccount" prefHeight="25.0" prefWidth="251.0" promptText="Enter Password" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="34.0" layoutY="46.0" prefHeight="17.0" prefWidth="229.0" text="MEMBERSHIP">
@@ -27,5 +27,6 @@
             <Font size="10.0" />
          </font>
       </Label>
+      <Button fx:id="createCancelButton" layoutX="171.0" layoutY="243.0" mnemonicParsing="false" onAction="#cancelButton" text="Cancel" />
    </children>
 </Pane>

@@ -6,27 +6,22 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MenuController">
    <children>
-      <Button layoutX="54.0" layoutY="127.0" mnemonicParsing="false" onAction="#returnBook" prefHeight="49.0" prefWidth="193.0" text="RETURN BOOKS">
+      <Button layoutX="54.0" layoutY="151.0" mnemonicParsing="false" onAction="#returnBook" prefHeight="49.0" prefWidth="193.0" text="RETURN BOOKS">
          <font>
             <Font name="Comic Sans MS Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="54.0" layoutY="78.0" mnemonicParsing="false" onAction="#addMenu" prefHeight="49.0" prefWidth="193.0" text="ADD BOOKS">
+      <Button layoutX="54.0" layoutY="102.0" mnemonicParsing="false" onAction="#addMenu" prefHeight="49.0" prefWidth="193.0" text="ADD BOOKS">
          <font>
             <Font name="Comic Sans MS Bold" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="54.0" layoutY="176.0" mnemonicParsing="false" onAction="#addViewAllBooks" prefHeight="49.0" prefWidth="193.0" text="VIEW BOOKS">
+      <Button layoutX="54.0" layoutY="200.0" mnemonicParsing="false" onAction="#addViewAllBooks" prefHeight="49.0" prefWidth="193.0" text="VIEW BOOKS">
          <font>
             <Font name="Comic Sans MS Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="54.0" layoutY="225.0" mnemonicParsing="false" onAction="#borrow" prefHeight="49.0" prefWidth="193.0" text="BORROW BOOKS">
-         <font>
-            <Font name="Comic Sans MS Bold" size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="54.0" layoutY="274.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="193.0" text="CHECK ACCOUNT">
+      <Button layoutX="54.0" layoutY="249.0" mnemonicParsing="false" onAction="#borrow" prefHeight="49.0" prefWidth="193.0" text="BORROW BOOKS">
          <font>
             <Font name="Comic Sans MS Bold" size="18.0" />
          </font>
