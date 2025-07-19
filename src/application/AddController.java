@@ -55,6 +55,11 @@ public class AddController {
 	
 		Book addBook = new Book(addFirstName.getText(), addLastName.getText(), addTitle.getText(), addPublished.getValue().toString(), "AVAILABLE", LibraryData.getUser().get(key) ); 
 		LibraryData.getBooks().add(addBook);
+		for(Users i : LibraryData.getCreatedUser()) {
+			if(i.getId() == LibraryData.getUser().get(key)) {
+				i.setAdded(i.getAdded() + 1);
+			}
+		}
 		
 		List<String> booksCheck = Files.readAllLines(Paths.get(filePath));
 			

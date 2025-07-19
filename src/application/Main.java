@@ -17,6 +17,7 @@ public class Main extends Application {
 			ReturnBookController.currentlyBorrow();
 			LoginController.builtIn();
 			AddController.storedBooks();
+			EmployeeController.howMany();
 			Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

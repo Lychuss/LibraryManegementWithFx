@@ -26,7 +26,7 @@
                   <Image url="@../images/server.png" />
                </image>
             </ImageView>
-            <Button fx:id="memberEmployee" layoutX="100.0" layoutY="86.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="113.0" text="MEMBERS">
+            <Button fx:id="memberEmployee" layoutX="100.0" layoutY="86.0" mnemonicParsing="false" onAction="#memberShow" prefHeight="54.0" prefWidth="113.0" text="MEMBERS">
                <font>
                   <Font name="Century Gothic Bold" size="18.0" />
                </font>

@@ -60,8 +60,6 @@ public class ReturnBookController {
     }
 	
 	public void initialize() {
-		
-		List<String> updatedLines = new ArrayList<>();
 	
 		borrowNumColumn.setCellValueFactory(new PropertyValueFactory<>("number"));
 		borrowTitleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
@@ -73,6 +71,7 @@ public class ReturnBookController {
 			private final Button btn = new Button("Return");
 		{	
 			btn.setOnAction(event -> {
+				List<String> updatedLines = new ArrayList<>();
 				ReturnBooks data = getTableView().getItems().get(getIndex());
 				getTableView().getItems().remove(data);
 				
@@ -122,19 +121,19 @@ public class ReturnBookController {
 
 					e.printStackTrace();
 				}
-					try(BufferedWriter writer = new BufferedWriter(new FileWriter(AddController.filePath))){
-						for(String i : updatedLines) {
-							writer.write(i);
-							writer.newLine();
-						}
-						
-					} catch (IOException error) {
-						System.out.println("Something went Wrong");
-					}
 				
+				try(BufferedWriter writer = new BufferedWriter(new FileWriter(AddController.filePath))){
+					for(String i : updatedLines) {
+						writer.write(i);
+						writer.newLine();
+					}
+					
+				} catch (IOException error) {
+					System.out.println("Something went Wrong");
+				}
 			});
-		
 		}
+		
 		@Override
 		protected void updateItem(Void item, boolean empty) {
 			super.updateItem(item, empty);
@@ -146,6 +145,7 @@ public class ReturnBookController {
 		}
 		});
 	}
+	
 	public static void currentlyBorrow() throws FileNotFoundException, IOException {
 		try(BufferedReader reader = new BufferedReader(new FileReader(AddController.filePath))){
 			String line;
