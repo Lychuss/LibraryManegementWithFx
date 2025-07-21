@@ -83,11 +83,13 @@ public class BorrowBookController {
 					String title = parts[0];
 					String firstName = parts[2];
 					String lastName = parts[3];
+					String date = parts[4];
 					if(title.equalsIgnoreCase(borrowTitle.getText()) && 
 					   firstName.equalsIgnoreCase(borrowFirstName.getText()) &&
 						lastName.equalsIgnoreCase(borrowLastName.getText())) {
 						parts[5] = "BORROWED";
 						parts[1] = LibraryData.getUser().get(key).toString();
+						parts[4] = currentDate.toString();
 					}
 			}
 				updatedLines.add(String.join(",", parts));

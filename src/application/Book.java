@@ -61,4 +61,8 @@ public class Book {
 	public void setDatePublished(String datePublished) {
 		this.datePublished = datePublished;
 	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
 }

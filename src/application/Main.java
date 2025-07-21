@@ -18,6 +18,7 @@ public class Main extends Application {
 			LoginController.builtIn();
 			AddController.storedBooks();
 			EmployeeController.howMany();
+			LateDueController.lateDueBuilt();
 			Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

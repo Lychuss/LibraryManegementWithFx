@@ -11,6 +11,15 @@ public class LibraryData {
 	    private static HashMap<String, Integer> users = new HashMap<>();
 	    private static HashMap<Integer, ArrayList<Book>> borrowBooks = new HashMap<>();
 	    private static HashMap<String, String> employeeAccounts = new HashMap<>();
+	    private static ArrayList<LateDue> lateDues = new ArrayList<>();
+	    
+	    public static ArrayList<LateDue> getLateDue(){
+	    	return lateDues;
+	    }
+	    
+	    public static void setLateDue(ArrayList<LateDue> lateDue) {
+	    	lateDues = lateDue;
+	    }
 	    
 	    public static HashMap<String, String> getEmployeeAccounts(){
 	    	return employeeAccounts;

@@ -76,6 +76,7 @@ public class EmployeeController {
 	}
 	
 	public static void howMany() {
+		
 		try(BufferedReader reader = new BufferedReader(new FileReader(AddController.filePath))){
 			String line;
 			
@@ -87,8 +88,14 @@ public class EmployeeController {
 					String borrowed = parts[5];
 					if(borrowed.equals("BORROWED")) {
 						for(Users i : LibraryData.getCreatedUser()) {
-							if(i.getId() == (Integer.parseInt(id))) {
+							if(i.getId() == Integer.parseInt(id)) {
 								i.setBorrowed(i.getBorrowed() + 1);
+							}
+						}
+					} else if(borrowed.equals("AVAILABLE")) {
+						for(Users i : LibraryData.getCreatedUser()) {
+							if(i.getId() == Integer.parseInt(id)) {
+								i.setAdded(i.getAdded() + 1);
 							}
 						}
 					}
@@ -97,5 +104,20 @@ public class EmployeeController {
 		} catch(IOException e) {
 			
 		}
+	}
+	
+	public void lateDue(ActionEvent e) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("LateDute.fxml"));
+		root = loader.load();
+		
+		LateDueController controller = loader.getController();
+		controller.loadTable();
+		
+		stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.centerOnScreen();
+		stage.setResizable(false);
+		stage.show();
 	}
 }

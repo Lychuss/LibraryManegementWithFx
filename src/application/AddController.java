@@ -58,6 +58,7 @@ public class AddController {
 		for(Users i : LibraryData.getCreatedUser()) {
 			if(i.getId() == LibraryData.getUser().get(key)) {
 				i.setAdded(i.getAdded() + 1);
+				System.out.println(i.getAdded());
 			}
 		}
 		

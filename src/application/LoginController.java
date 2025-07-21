@@ -40,7 +40,7 @@ public class LoginController {
 	static String filePath1 = "C:\\Users\\Test\\Downloads\\Passwords.txt";
 
 	public static void builtIn(){
-		
+	LibraryData.getCreatedUser().clear();
 	try(BufferedReader reader = new BufferedReader(new FileReader(filePath1))){
 		
 		String line;
