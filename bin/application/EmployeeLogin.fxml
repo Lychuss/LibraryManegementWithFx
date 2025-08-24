@@ -19,7 +19,7 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" blendMode="MULTIPLY" fill="#0d0d0d69" height="149.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
-      <Label layoutX="155.0" layoutY="37.0" prefHeight="38.0" prefWidth="509.0" text="SOUTHERN LUZON STATE UNIVERSITY" textFill="#fff9f9">
+      <Label layoutX="155.0" layoutY="37.0" prefHeight="38.0" prefWidth="509.0" text="YOUR SCHOOL NAME UNIVERSITY" textFill="#fff9f9">
          <font>
             <Font name="Times New Roman" size="27.0" />
          </font>
@@ -29,7 +29,7 @@
             <Image url="@../images/logo.png" />
          </image>
       </ImageView>
-      <Label layoutX="155.0" layoutY="63.0" prefHeight="38.0" prefWidth="206.0" text="COLLEGE OF ENGINNERING" textFill="#fff9f9">
+      <Label layoutX="155.0" layoutY="63.0" prefHeight="38.0" prefWidth="206.0" text="COLLEGE OF YOUR COURSE" textFill="#fff9f9">
          <font>
             <Font name="Times New Roman" size="15.0" />
          </font>

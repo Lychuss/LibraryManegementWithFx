@@ -67,7 +67,7 @@ public class LoginEmployeeController {
 			}
 		
 		public void cancelButton(ActionEvent e) throws IOException {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("Menu.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
 			root = loader.load();
 			stage = (Stage)((Node)e.getSource()).getScene().getWindow();
 			scene = new Scene(root);
